@@ -111,7 +111,7 @@ RLEList_t RLEListCreate(){
         return ptr;
 };
 
-RLEListResult RLEListAppend(RLEList list, char value){node
+RLEListResult RLEListAppend(RLEList list, char value){
     if (value==NULL){
        return RLE_LIST_NULL_ARGUMENT;
     }
