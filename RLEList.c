@@ -101,3 +101,62 @@ char* RLEListExportToString(RLEList list, RLEListResult* result);
 }
 
 //implement the functions here
+RLEList_t RLEListCreate(){
+    RLEList_t ptr = malloc(sizeof(*ptr));
+    if(!ptr) {
+        return NULL;
+    }
+        ptr->data = NULL;
+        ptr->next = NULL;
+        return ptr;
+};
+
+RLEListResult RLEListAppend(RLEList list, char value){
+    if (value==NULL){
+       return RLE_LIST_NULL_ARGUMENT;
+    }
+    if(list==NULL){
+        return RLE_LIST_OUT_OF_MEMORY;
+    }
+while (list!= NULL){
+list = list->next;
+}
+RLEList_t newHead = RLEListCreate(value);
+list->next=newhead;
+    newhead->data = value;
+    newhead->next = NULL;
+    return RLE_LIST_SUCCESS;
+}
+
+RLEListResult RLEListRemove(RLEList list, int index){
+    if(index==NULL){
+        return RLE_LIST_NULL_ARGUMENT;
+    }
+    int length_of_list=0;
+    while(list){
+        length_of_list++;
+    }
+    if(length_of_list<index){
+        return RLE_LIST_INDEX_OUT_OF_BOUNDS;
+    }
+if(list*+(index)->next==NULL) {
+    list * +(index-1)->next == NULL;
+}
+else(
+        list*+(index-1)->next=list*+(index-1);
+        )
+return RLE_LIST_SUCCESS;
+}
+
+RLEListResult RLEListMap(RLEList list, MapFunction map_function){
+while(list != NULL){
+    if(list->data==NULL){
+        return RLE_LIST_NULL_ARGUMENT;
+    }
+    if(list->data=='c'){
+        list->data==map_function(c);
+    }
+    list=list->next;
+}
+return LIST_SUCCESS;
+}
