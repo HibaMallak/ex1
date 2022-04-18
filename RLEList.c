@@ -6,7 +6,7 @@
 struct RLEList_t{
     char data;
     struct node *next;
-}*Node;
+};
 
 void RLEListDestroy(RLEList list)
 {
