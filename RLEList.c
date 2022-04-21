@@ -5,6 +5,7 @@
 
 struct RLEList_t{
     char data;
+    int count;
     struct node *next;
 };
 
@@ -13,10 +14,11 @@ void RLEListDestroy(RLEList list)
     //Node node1= (Node)malloc(sizeof(*node1));
     //node1->data= NULL;
     //node1->next=list;
-    while(list!= NULL)
+    while(list)
     {
-        free(*(list->data));
-        list->next=list->next+1;
+        RLEList toDelete= list;
+        list= list->next;
+        free(toDelete);
     }
     return;
 }
